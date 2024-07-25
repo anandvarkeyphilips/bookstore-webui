@@ -2,12 +2,19 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/partials/Navbar';
 import React from 'react';
+import Home from './components/Home';
+import About from './components/About';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <React.Fragment>
-      <Navbar/>
-    </React.Fragment>
+    <Routes>
+      <Route path="/" element={<Layout />}  >
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />        
+      </Route>
+    </Routes>
   );
 }
 
