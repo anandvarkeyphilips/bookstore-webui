@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import books from '../data/books';
+//import books from '../data/books';
 import BookCardView from './partials/BookCardView';
 import BookTableView from './partials/BookTableView';
  
@@ -8,6 +8,8 @@ export default function Home() {
     // console.log(books);
 
     const [viewType, setViewType] = useState('table');
+    const [books,setBooks] = useState([]);
+
    
     const viewSwitchHandler = (e)=> {
         if(e.target.checked) {
@@ -16,6 +18,14 @@ export default function Home() {
             setViewType('table');
         }
     }
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/books')
+        .then(res => res.json())
+        .then(data => setBooks(data))
+        .catch(reason => console.error(reason));
+    })
+
     return (
         <div className='container'>
             <div className='row'>
