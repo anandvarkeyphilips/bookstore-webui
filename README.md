@@ -73,3 +73,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Run Json Server:
 json-server --port 5000 --watch .\books.json
+
+### Build and Serve Production Build
+npm -g install serve
+npm run build
+serve -s .\build\
