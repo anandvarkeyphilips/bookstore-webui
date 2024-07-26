@@ -1,0 +1,157 @@
+
+Ecommerce:
+	- User module : Login, SignUp, Profile Mgnt, Password Mgnt
+	- ProductsModule : Search products, Add products, update product, delete product, Manage Reorder level
+	- Cart Module : Add to Cart, Remove from cart, Clear cart, update qnty in cart
+	- Order Module: Place order, Cancel order, View order history, View ORder details
+	- Payment Module: Pay by cash, Coupon mgnt, Refund status
+Front-end App Development:
+	- React
+		- Is a Library
+		- Provides the functions/classes for UI components only
+		- Primarily supports one way data binding. 
+		- Forms support is very limited. For form validation we need to use third-party libraries.
+		- No support for Dependency injection
+		- For Async data operations need to use promises 
+	- Angular
+		- Is a framework
+		- Build an end-to-end app .
+		- Supports one-way and two-way data binding.
+		- Forms and form data validation are supported. 
+		- Supports services (Dependency Injection) and built-in async data processing using RxJs
+Features of React:
+	- A library - no strict patterns to be followed. 
+	- Open-source 
+	- Light weight
+	- Very fast UI rendering using Virtual DOM
+	
+Virtual DOM:
+	- Memory representation of the Browser DOM
+	
+Command Line utility: create-react-app
+	- Install the CLI globally in your local machine
+			npm install -g create-react-app 
+	-Create the first project
+		create-react-app <ProjectName> 
+		
+React Component:
+	- A UI element 
+	- Can be a function type or class type.
+	- Function components are widely used.
+	- If it is function component then the function should return a JSX code.
+	- if it is class component then the class must have a render method that returns the JSX Code.
+	- every class component should inherit from the Component base class from react package. 
+
+JSX:
+	- JavaScript XML
+	- Looks like HTML code. It is the combination of JS and XML based HTML.
+	- all tags must be closed
+	- use lowercases
+	- keywords are not allowed in JSX , eg class 
+		HTML : <div class="cssclassname"></div>
+		JSX: <div className="cssclassname"></div>
+	- Atributes must be placed in quotes 
+	- There should be one and only one root element. 
+		
+Printing List items:
+	- Use the map function to generate list of elements.
+	- map function accepts a action method as argument that receives item and index as its args.
+	- the map action method returns the JSX to print the dynamically generated items. 
+	- eg: array.map((item,index)=>{
+		return <HTMLElement key={index}>{item}</HTMLElement>
+	})
+	
+Conditional rendering:
+	- Is used to print elements based on a condition.
+	- Two ways to execute conditional rendering.
+	- Use && operator
+		- syntax: (condition) && JSX Element
+		- It print the JSX element if the condition is TRUE.
+	- Use ? : operator
+		- syntax: (conditionExpr)? True JSXElement : False JSXElement
+		- it evaluates the condition expression and displays the Trye JSX element if true otherwise print False JSX element. 
+		
+Props:
+	- Props means properties.
+	- properties are read only members of a component. 
+	- It is used to pass values from parent component to child component. 
+	- Props cannot be used to pass values directly from child to parent.  
+	- props are immutable.
+	- When the child props changes the component will re-render and displays the updated value. 
+	
+Event Handling:
+	- Handle the JS Events using react.
+	- use  onEventName={handlerFunction} 
+	- eg: In function component :   onClick = { submitHandler} 
+	- eg: In class component: onClick = {this.submitHandler} , also need to bind the fucntion to class object using constructor. 
+	
+form controls in React:
+	- Controlled components:
+		- uses the state object and textbox change event handlers to update the state
+		- it supports two-way binding. 
+	- Uncontrolled components: 
+		- using the ref variables. In function components use the useRef to create ref variables and in class components use the createRef method. 
+		- support only one-way binding. 
+		
+Hook methods:
+	- Simple functions that can be used in Function components to enable some features.
+	- Hook method names start with "use" , eg: useRef, useState, useContext, useEffect, 
+	- useState is used to create a state variable. it returns a tuple of variable and setter method.
+	- syntax: const [variable, setterMethod] = useState(initialValue)
+	- eg: const [name, setName] = useState("Unknown")
+	
+Life cycle methods:
+	- special type of functions that executes during a component lifecycle. 
+	- they will be called automatically.
+	- life cycle methods are only available in class components. 
+	- Stages of components:
+		1) Mount
+			- Constructor - first method executed when a component object is created 
+			- getDerivedStateFromProps() - Sync the props with states
+			- render() - update the UI
+			- componentDidMount()  - executed after UI is loaded, usually used to load data from backend APIs
+		2) Update - if there is some state/prop change then it trigger the update
+			- getDerivedStateFromProps()- when props or state changes
+			- shouldComponentUpdate() - decide whether the render method to be called or not based on the change
+				- render() - re-render the UI based on the value returned by shouldComponentUpdate ( executes if true is receved otherwise not)
+				- getSnapshotBeforeUpdate(): Get snapshot of the current state before the brower ui is updated.
+				- componentDidUpdate() - Executes after the component is updated
+		3) Delete (Unmount)
+			- componentWillUnmount() - executes some cleanup code before the component is unmounted. 
+			
+React Router:
+	- routing is not a built-in feature in react.
+	- We need to add third-party library for routing. 
+	- npm install react-router-dom
+	- When use clicks on a Link router handles that request and loads the component in the Outlet.
+	- We need to write route configurations: It works like a switch case.
+			<Routes>
+				<Route path="/" element={<Home/> }  />
+				<Route path ="about" element= {<About />} />
+				<Route path="login" element={<Login /> } />
+			</Routes>
+			
+Use Json Server API:
+	- A Mock API to test the API operations in React.
+	- Install the json server as a global tool
+		npm install -g json-server
+	- start server : json-server --port 5000 --watch books.json
+	
+Make HTTP API calls:
+	- Use fetch function or axios package. 
+	- fetch is a built-in function to perform http api calls. 
+	- axios is a third-party library which need to be installed using npm.
+	
+Babel:
+	- Is a transpiler. 
+	- Code written in latest version of JS to compatible version of JS.
+	- ECAMAScript - 
+		- ES 4
+		- ES 5
+		- ES 6 -> class, arrow function, spread and rest operators, promises, 
+		- ES 7 - async/await 
+		- ES 8 
+	- Babel plugin can be configured with all bundling tools such as webpack, gulp, grunt etc.
+	- in create-react-app CLI it is already configured because it uses webpack to build and run project. 
+	
+	
