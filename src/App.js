@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import CreateBook from './components/CreateBook';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" element={<Layout />}  >
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />        
+        <Route path="create" element={<CreateBook />} />  
       </Route>
     </Routes>
   );

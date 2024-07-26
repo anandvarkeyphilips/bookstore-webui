@@ -26,8 +26,8 @@ export default function Navbar() {
             <Link className="nav-link active" to={"about"}>
               About
             </Link>
-            <Link className="nav-link active" to={"/"}>
-              Pricing
+            <Link className="nav-link active" to={"create"}>
+              Add Book
             </Link>
           </ul>
         </div>
