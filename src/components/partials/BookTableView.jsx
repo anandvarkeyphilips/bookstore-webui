@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function BookTableView({books}){
 
     return(<table className='table table-bordered table-striped'>
@@ -14,6 +16,9 @@ export default function BookTableView({books}){
             {books.map((book) => {
                 return (
                     <tr key={book.id}>
+                        <td>
+                            <Link to={`/detail/${book.id}`}> {book.title} </Link>
+                        </td>
                         <td>{book.title}</td>
                         <td>{book.author}</td>
                         <td>{book.pageCount}</td>
